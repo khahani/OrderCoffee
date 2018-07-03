@@ -13,26 +13,33 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        Count = 1;
     }
 
-    public void afzayesh(View view) {
-        TextView countTextView = (TextView) findViewById(R.id.count);
-        String countString = countTextView.getText().toString();
-        int count = Integer.parseInt(countString);
-
-        if (count < 20)
-            count++;
-
-        countTextView.setText(String.valueOf(count));//count+"");
+    public void afzayesh_click(View view) {
+        afzayesh();
+        display();
     }
 
-    public void kahesh(View view) {
-        TextView countTextView = (TextView) findViewById(R.id.count);
-        String countString = countTextView.getText().toString();
-        int count = Integer.parseInt(countString);
-        if (count > 1)
-            count--;
+    public void kahesh_click(View view) {
+        kahesh();
+        display();
+    }
 
-        countTextView.setText(String.valueOf(count));
+    private int Count;
+
+    public void afzayesh() {
+        if (Count < 20)
+            Count++;
+    }
+
+    public void kahesh() {
+        if (Count > 1)
+            Count--;
+    }
+
+    public void display() {
+        TextView countTextView = (TextView) findViewById(R.id.count);
+        countTextView.setText(String.valueOf(Count));
     }
 }
